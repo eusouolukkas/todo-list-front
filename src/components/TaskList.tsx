@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from '../Api';
+import Modal from 'react-modal';
 
 interface Task {
   _id: string;
@@ -8,10 +9,40 @@ interface Task {
 
 const TaskList: React.FC = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
+  const [taskId, setTaskId] = useState<string | null>(null);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
+  const [editedDescription, setEditedDescription] = useState<string>('');
+
 
   useEffect(() => {
     getTasks();
   }, []);
+
+  const handleGetTaskIdAndEdit = (id: string) => {
+    setTaskId(id);
+    setIsModalOpen(true);
+  };
+
+  const handleModalClose = () => {
+    setIsModalOpen(false);
+  };
+
+  const handleEditTask = async () => {
+    if (taskId) {
+      try {
+        await axios.put(`/api/tasks/${taskId}`, { description: editedDescription });
+        console.log('Tarefa editada com sucesso!');
+
+        setTaskId(null);
+        setTasks([]);
+        setEditedDescription('');
+        setIsModalOpen(false);
+        location.reload();
+      } catch (error) {
+        console.error('Erro ao editar tarefa:', error);
+      }
+    }
+  };
 
   const getTasks = async () => {
       try {
@@ -49,11 +80,34 @@ const TaskList: React.FC = () => {
                 <p key={task._id} className='text'>{task.description} </p>
               <div>
                 <button className='icon' onClick={() => handleDeleteTask(task._id)}>x</button>
-                
+                <button onClick={() => handleGetTaskIdAndEdit(task._id)}>Editar</button>
               </div>
             </div>
             ))}
         </div>
+
+        <Modal
+        isOpen={isModalOpen}
+        onRequestClose={handleModalClose}
+        contentLabel="Editar Tarefa"
+      >
+        <h2>Editar Tarefa</h2>
+        {tasks && (
+          <div>
+            <label>
+              Nova Descrição:
+              <input
+                type="text"
+                value={editedDescription}
+                onChange={(e) => setEditedDescription(e.target.value)}
+              />
+            </label>
+            <button onClick={handleEditTask}>Confirmar Edição</button>
+            <button onClick={handleModalClose}>Fechar Modal</button>
+          </div>
+        )}
+      </Modal>
+
       </div>
   );
 };
