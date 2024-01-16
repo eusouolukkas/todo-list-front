@@ -1,30 +1,58 @@
-# React + TypeScript + Vite
+# To-Do List Front End(Lista de Tarefas)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Uma lista de afazeres onde é possível registrar, visualizar, atualizar e deletar suas tarefas.
 
-Currently, two official plugins are available:
+### Pré-requisitos
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Antes de começar, você vai precisar ter instalado em sua máquina as seguintes ferramentas:
+[Git](https://git-scm.com) e [Node.js](https://nodejs.org/en/). 
+Além disto é bom ter um editor para trabalhar com o código, como o [VSCode](https://code.visualstudio.com/)
 
-## Expanding the ESLint configuration
+### 🎲 1º - Rodando o Back End (servidor)
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+```bash
+# Clone este repositório
+$ git clone <https://github.com/eusouolukkas/todo-list-back>
 
-- Configure the top-level `parserOptions` property like this:
+# Acesse a pasta do projeto no terminal/cmd
+$ cd tarefas-back
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+# Instale as dependências
+$ yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn start
+
+# O servidor inciará na porta:3000 - acesse <http://localhost:3000>
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+### 2º - Rodando o Front End
+
+```bash
+# Clone est repositório
+$ git clone <https://github.com/eusouolukkas/todo-list-front>
+
+# Acesse a pasta do projeto no terminal/cmd
+$ cd tarefas-front
+
+# Instale as dependências
+$ yarn
+
+# Execute a aplicação em modo de desenvolvimento
+$ yarn dev
+
+# O Vite será iniciado e exibirá o localhost
+
+### 🛠 Tecnologias
+
+As seguintes ferramentas foram usadas na construção desse projeto:
+
+- [React Vite](https://vitejs.dev/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Axios](https://axios-http.com/)
+
+
+## Estrutura do projeto
+
+./src - fica toda a aplicação com seu estilo CSS.
+./src/components - Componentes React TSX.

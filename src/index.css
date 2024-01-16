@@ -4,12 +4,6 @@
     align-items: center;
 }
 
-h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 32px;
-}
-
 .task {
     display: flex;
     align-items: center;
@@ -30,23 +24,9 @@ h1 {
     font-size: 20px;
 }
 
-/* .task .delete-task {
-    top: 50px;
-    right: 16px;
-    transform: translateY(-50%);
-    width: 23px;
-    height: 23px;
-    color: black;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-} */
-
 button {
 	padding: 5px;
-    margin-left: 10px;
+    margin-left: 5px;
     margin-top: 5px;
     background-color: black;
     color: white;
@@ -58,4 +38,10 @@ input {
     padding: 10px;
     border-bottom: 2px solid;
     outline: none;
+}
+
+h1 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 32px;
 }

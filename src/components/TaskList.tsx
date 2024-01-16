@@ -89,6 +89,7 @@ const TaskList: React.FC = () => {
         <Modal
         isOpen={isModalOpen}
         onRequestClose={handleModalClose}
+        ariaHideApp={false}
         contentLabel="Editar Tarefa"
       >
         <h2>Editar Tarefa</h2>

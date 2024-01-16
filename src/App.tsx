@@ -28,12 +28,12 @@ export const App: React.FC = () => {
 
   return (
     <div className='App'>
-      <h1>Adicionar nova tarefa</h1>
+      <TaskList />
+      <h2>Adicionar nova tarefa</h2>
       <div className='tasks'>
         <input type="text" value={newTask} onChange={handleTaskDescriptionChange} placeholder='Escreva sua tarefa' />
       </div>
       <button onClick={handleCreateTask}>Criar Tarefa</button>
-      <TaskList />
     </div>
   );
 };
